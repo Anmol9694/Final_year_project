@@ -4,33 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Health Monitoring System</title>
 </head>
 
 <body>
 
     <div style="color:blue">
         <form action="{{ url_for('predict')}}" method="post">
-            <h2>Predictive analysis</h2>
-            <h3>Year</h3>
-            <input id="first" name="Year" type="number ">
-            <h3>What is the Showroom Price?(In lakhs)</h3><br><input id="second" name="Present_Price" required="required">
-            <h3>How Many Kilometers Drived?</h3><input id="third" name="Kms_Driven" required="required">
-            <h3>How much owners previously had the car(0 or 1 or 3) ?</h3><br><input id="fourth" name="Owner" required="required">
-            <h3>What Is the Fuel type?</h3><br><select name="Fuel_Type_Petrol" id="fuel" required="required">
-                <option value="Petrol">Petrol</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Diesel">CNG</option>
+            <h2>Health Monitoring System</h2>
+
+            <h3>Age</h3>
+            <input class="text_box" name="age" required>
+            
+            <h3>Anaemia</h3>
+            <select name="anaemia" class="research" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
             </select>
-            <h3>Are you A Dealer or Individual</h3><br><select name="Seller_Type_Individual" id="resea" required="required">
-                <option value="Dealer">Dealer</option>
-                <option value="Individual">Individual</option>
+
+            <h3>Creatinine Phosphokinase</h3>
+            <input class="text_box" name="creatinine" required>
+
+            <h3>Diabetes</h3>
+            <select name="diabetes" class="research" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
             </select>
-            <h3>Transmission type</h3><br><select name="Transmission_Mannual" id="research" required="required">
-                <option value="Mannual">Manual Car</option>
-                <option value="Automatic">Automatic Car</option>
+
+            <h3>Ejection Fraction</h3>
+            <input class="text_box" name="ejection_fraction" required="required">
+                
+            <h3>Platelets</h3>
+            <input class="text_box" name="platelets" required="required">
+
+            <h3>Serum Creatinine</h3>
+            <input class="text_box" name="serum_creatinine" required="required">
+
+            <h3>Serum Sodium</h3>
+            <input class="text_box" name="serum_sodium" required="required">
+
+            <h3>Sex</h3>
+            <select name="sex" class="research" required="required">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
             </select>
-            <br><br><button id="sub" type="submit ">Calculate the Selling Price</button>
+
+            <h3>Smoking</h3>
+            <select name="smoking" class="research" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <h3>Time</h3>
+            <input class="text_box" name="time" required="required">
+
+            <h3>Death Event</h3>
+            <select name="death_event" class="research" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <h3>Temperature</h3>
+            <input class="text_box" name="temperature" required="required">
+
+            <br><br><button id="sub" type="submit ">Check for High BP</button>
             <br>
 
 
@@ -53,7 +90,7 @@
             padding: 0px;
         }
         
-        #research {
+        .research {
             font-size: 18px;
             width: 100px;
             height: 23px;
@@ -90,7 +127,7 @@
             background-color: coral;
         }
         
-        #research {
+        .research {
             width: 99px;
             height: 43px;
             text-align: center;
@@ -98,7 +135,7 @@
             font-size: 18px;
         }
         
-        #research:hover {
+        .research:hover {
             background-color: coral;
         }
         
@@ -126,28 +163,7 @@
             background-color: darkcyan;
         }
         
-        #first {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        #second {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        #third {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        #fourth {
+        .text_box {
             border-radius: 14px;
             height: 25px;
             font-size: 20px;
