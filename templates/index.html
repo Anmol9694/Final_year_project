@@ -4,172 +4,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/maicons.css">
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+
+  <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+
+  <link rel="stylesheet" href="../assets/css/theme.css">
     <title>Health Monitoring System</title>
 </head>
 
-<body>
+<body>    
 
-    <div style="color:blue">
+    <header>
+        <div class="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 text-sm">
+                <div class="site-info">
+                  <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
+                  <span class="divider">|</span>
+                  <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+                </div>
+              </div>
+              <div class="col-sm-4 text-right text-sm">
+                <div class="social-mini-button">
+                  <a href="#"><span class="mai-logo-facebook-f"></span></a>
+                  <a href="#"><span class="mai-logo-twitter"></span></a>
+                  <a href="#"><span class="mai-logo-dribbble"></span></a>
+                  <a href="#"><span class="mai-logo-instagram"></span></a>
+                </div>
+              </div>
+            </div> <!-- .row -->
+          </div> <!-- .container -->
+        </div> <!-- .topbar -->
+    
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+          <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-primary">Monitor</span>-Health</a>
+    
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupport">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="doctors.html">Check BP</a>
+                </li>
+              </ul>
+            </div> <!-- .navbar-collapse -->
+          </div> <!-- .container -->
+        </nav>
+      </header>
+      
+    <div style="max-width: 700px; margin-left:auto; margin-right:auto;">
         <form action="{{ url_for('predict')}}" method="post">
-            <h2>Health Monitoring System</h2>
+            <h1 style="text-align: center;padding-top:20px">Health Monitoring System</h1>
 
-            <h3>Age</h3>
-            <input class="text_box" name="age" required>
-            
-            <h3>Anaemia</h3>
-            <select name="anaemia" class="research" required="required">
+            <div style="display:flex;">
+                <!-- <h3>Age</h3> -->
+                <input class="form-control" name="age" required placeholder="AGE">
+                <select  class="form-control" name="anaemia" class="research" required="required">
+                    <option value="">ANAEAMIA</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div style="display: flex;">
+                <input class="form-control" name="creatinine" required placeholder="Creatinine Phosphokinase">
+                <select name="diabetes" ID="diabetes"class="form-control" required="required">
+                    <option value="">DIABETES</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div style="display: flex;">
+                <input class="form-control" name="ejection_fraction" required="required" placeholder="Ejection Fraction">
+                <input class="form-control" name="platelets" required="required" placeholder="Platelets">
+            </div>
+
+            <div style="display: flex;">
+                <input class="form-control" name="serum_creatinine" required="required" placeholder="Serum Creatinine">
+                <input class="form-control" name="serum_sodium" required="required" placeholder="Serum Sodium">
+            </div>
+
+            <div style="display: flex; align-items:center;">
+                <label style="font-size: 22px; padding-top:20px;padding-right:10px">SEX</label>
+                <select name="sex" class="form-control" required="required">
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+
+                <label style="font-size: 22px; padding-top:20px; padding-right:10px">SMOKING</label>
+                <select name="smoking" class="form-control" required="required">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div style="display: flex; align-items:center">
+                <input class="form-control" name="time" required="required" placeholder="TIME">
+            <label style="font-size: 22px; padding-top:20px; padding-right:10px">Death Event</label>
+            <select name="death_event" class="form-control" required="required">
                 <option value="0">No</option>
                 <option value="1">Yes</option>
             </select>
+            </div>
 
-            <h3>Creatinine Phosphokinase</h3>
-            <input class="text_box" name="creatinine" required>
+            <div style="display: flex;">
+                <input class="form-control" name="temperature" required="required" placeholder="Temperature">
+            </div>
 
-            <h3>Diabetes</h3>
-            <select name="diabetes" class="research" required="required">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-
-            <h3>Ejection Fraction</h3>
-            <input class="text_box" name="ejection_fraction" required="required">
-                
-            <h3>Platelets</h3>
-            <input class="text_box" name="platelets" required="required">
-
-            <h3>Serum Creatinine</h3>
-            <input class="text_box" name="serum_creatinine" required="required">
-
-            <h3>Serum Sodium</h3>
-            <input class="text_box" name="serum_sodium" required="required">
-
-            <h3>Sex</h3>
-            <select name="sex" class="research" required="required">
-                <option value="0">Male</option>
-                <option value="1">Female</option>
-            </select>
-
-            <h3>Smoking</h3>
-            <select name="smoking" class="research" required="required">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-
-            <h3>Time</h3>
-            <input class="text_box" name="time" required="required">
-
-            <h3>Death Event</h3>
-            <select name="death_event" class="research" required="required">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-
-            <h3>Temperature</h3>
-            <input class="text_box" name="temperature" required="required">
-
-            <br><br><button id="sub" type="submit ">Check for High BP</button>
+            <br><br><button id="sub" type="submit">Check for High BP</button>
             <br>
-
-
-
-
         </form>
-
-
-
-        <br><br><h3>{{ prediction_text }}<h3>
     </div>
-
-
-
+    <div style="text-align: center; padding-top:60px">
+        <h3>{{ prediction_text }}<h3>
+    </div>
 
     <style>
         body {
-            background-color: lightslategray;
-            text-align: center;
+            /*background-color: lightslategray;*/
+            text-align: left;
             padding: 0px;
+            /*background-image: url("");*/
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Koulen', cursive;
         }
-        
-        .research {
-            font-size: 18px;
-            width: 100px;
-            height: 23px;
-            top: 23px;
+        input, option{
+            font-family: 'Koulen', cursive;
         }
-        
-        #box {
-            border-radius: 60px;
-            border-color: 45px;
-            border-style: solid;
-            font-family: cursive;
-            text-align: center;
-            background-color: rgb(168, 131, 61);
-            font-size: medium;
-            position: absolute;
-            width: 700px;
-            bottom: 9%;
-            height: 850px;
-            right: 30%;
-            padding: 0px;
-            margin: 0px;
-            font-size: 14px;
-        }
-        
-        #fuel {
-            width: 83px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 20px;
-        }
-        
-        #fuel:hover {
-            background-color: coral;
-        }
-        
-        .research {
-            width: 99px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 18px;
-        }
-        
-        .research:hover {
-            background-color: coral;
-        }
-        
-        #resea {
-            width: 99px;
-            height: 43px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 18px;
-        }
-        
-        #resea:hover {
-            background-color: coral;
-        }
-        
         #sub {
-            width: 120px;
-            height: 43px;
+            width: 160px;
             text-align: center;
-            border-radius: 14px;
+            border-radius: 5px;
             font-size: 18px;
         }
         
         #sub:hover {
-            background-color: darkcyan;
+            background-color: white;
         }
-        
-        .text_box {
-            border-radius: 14px;
-            height: 25px;
-            font-size: 20px;
-            text-align: center;
+        .form-control {
+            padding: 8px 15px;
+            height: calc(1.5em + 1.375rem + 2px);
+            border-color: #d6dbd9;
+            margin-right: 20PX;
+            margin-top: 20px;
         }
     </style>
 </body>
+<footer class="page-footer">
+    <div class="container">
+      <div class="row px-md-3">
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Editorial Team</a></li>
+            <li><a href="#">Protection</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Join as Doctors</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Our partner</h5>
+          <ul class="footer-menu">
+            <li><a href="#">ABC</a></li>
+            <li><a href="#">ABC</a></li>
+            <li><a href="#">ABC</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link mt-2">Poorniam Institute of Engineering and Technology</p>
+          <a href="#" class="footer-link">701-573-7582</a>
+          <a href="#" class="footer-link">healthcare@temporary.net</a>
 
+          <h5 class="mt-3">Social Media</h5>
+          <div class="footer-sosmed mt-3">
+            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 </html>
